@@ -9,9 +9,9 @@ import javax.servlet.http.*;
 import java.io.IOException;
 import java.util.List;
 
-@WebServlet("/Home")
+@WebServlet("/productpage")//@WebServlet(urlPatterns = {"/", "/index.jsp", "/product"})
 
-public class ProductServelet extends HttpServlet {
+public class ProductPage extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private ProductService productService;
 
@@ -27,7 +27,7 @@ public class ProductServelet extends HttpServlet {
 		    List<Product> products = productService.getAllProducts();
 		    System.out.println("Products count: " + products.size());  // Debug print
 		    request.setAttribute("featuredProducts", products);
-		    request.getRequestDispatcher("/index.jsp").forward(request, response);
+		    request.getRequestDispatcher("/ProductPage.jsp").forward(request, response);
 
 		}
 
